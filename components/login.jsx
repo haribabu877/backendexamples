@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [FullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://localhost:5173/api/auth/login", {
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
         username,
         password,
       });
@@ -24,13 +24,13 @@ export default function Login() {
       <input
         type="text"
         placeholder="Username"
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={(e) => setFullName(e.target.value)}
       />
       <br />
       <input
-        type="password"
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
+        type="email"
+        placeholder="email"
+        onChange={(e) => setEmail(e.target.value)}
       />
       <br />
       <button onClick={handleLogin}>Login</button>
